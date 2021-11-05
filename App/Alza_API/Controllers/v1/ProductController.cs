@@ -1,4 +1,5 @@
-﻿using Alza_API.Interfaces.Models;
+﻿using Alza_API.Interfaces;
+using Alza_API.Interfaces.Models;
 using Alza_API.Logic;
 using Alza_API.Models.DB;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +15,7 @@ namespace Alza_API.Controllers.v1
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        readonly ProductModule module;
+        readonly IProductModule module;
 
         public ProductController(DataContext context)
         {
@@ -37,6 +38,7 @@ namespace Alza_API.Controllers.v1
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IProduct))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> GetProductAsync([Required]string id)
         {
@@ -50,11 +52,12 @@ namespace Alza_API.Controllers.v1
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateProductAsync([Required]string id, string description)
         {
-            var (success, statusCode, errorMessage) = await module.UpdateProductDescriptionAsync(id, description);
-            return success
+            var (product, statusCode, errorMessage) = await module.UpdateProductDescriptionAsync(id, description);
+            return product != null && product.Description == description
                 ? Ok()
                 : StatusCode(statusCode, errorMessage);
         }
