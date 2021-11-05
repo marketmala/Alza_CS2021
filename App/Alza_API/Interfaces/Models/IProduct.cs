@@ -8,6 +8,7 @@ namespace Alza_API.Interfaces.Models
         public string Name { get; set; }
         public string ImgUri { get; set; }
         public decimal Price { get; set; }
+#nullable enable
         public string? Description { get; set; }
     }
 }

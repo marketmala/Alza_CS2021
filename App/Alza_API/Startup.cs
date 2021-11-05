@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -42,7 +43,7 @@ namespace Alza_API
                 c.ApiVersionReader = new QueryStringApiVersionReader("api-version");
             });
             services.AddDbContext<DataContext>(options =>
-                options.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Narjíta Malá\\Documents\\Visual Studio 2019\\Alza_CS2021\\Database\\Alza_CS2021.mdf\";Integrated Security=True;Connect Timeout=30"));
+                options.UseSqlServer($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"{Directory.GetParent(Environment.CurrentDirectory).Parent}\\Database\\Alza_CS2021.mdf\";Integrated Security=True;Connect Timeout=30"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,10 +75,6 @@ namespace Alza_API
             // Swagger
             app.UseSwagger();
             app.UseSwaggerUI();
-            //app.UseSwaggerUI(c =>
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Alza API");
-            //});
         }
     }
 }

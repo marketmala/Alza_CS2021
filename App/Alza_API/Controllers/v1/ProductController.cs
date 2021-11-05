@@ -4,6 +4,7 @@ using Alza_API.Models.DB;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace Alza_API.Controllers.v1
@@ -23,32 +24,39 @@ namespace Alza_API.Controllers.v1
         [HttpGet("GetAllProductsAsync")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<IProduct>))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> GetAllProductsAsync()
         {
             var result = await module.GetAllProductsAsync();
             return result != null
                 ? Ok(result)
-                : BadRequest(null);
+                : StatusCode(StatusCodes.Status500InternalServerError);
         }
 
         [HttpGet("GetProductAsync")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IProduct))]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> GetProductAsync(string id)
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> GetProductAsync([Required]string id)
         {
-            var (product, errorMessage) = await module.GetProductAsync(id);
+            var (product, statusCode, errorMessage) = await module.GetProductAsync(id);
             return string.IsNullOrEmpty(errorMessage) 
                 ? Ok(product)
-                : BadRequest(errorMessage);
+                : StatusCode(statusCode, errorMessage);
         }
 
         [HttpPost("UpdateProductAsync")]
         [MapToApiVersion("1.0")]
-        public async Task<ActionResult> UpdateProductAsync()
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult> UpdateProductAsync([Required]string id, string description)
         {
-            return Ok();
+            var (success, statusCode, errorMessage) = await module.UpdateProductDescriptionAsync(id, description);
+            return success
+                ? Ok()
+                : StatusCode(statusCode, errorMessage);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Alza_API.Interfaces.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace Alza_API.Models.DB
 {
@@ -18,7 +19,7 @@ namespace Alza_API.Models.DB
 
         [Required(ErrorMessage = "Missing required attribute: Price.")]
         public decimal Price { get; set; }
-
+#nullable enable
         public string? Description { get; set; }
 
     }
