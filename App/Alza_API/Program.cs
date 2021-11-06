@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace Alza_API
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning disable S1118 // Utility classes should not have public constructors
     public class Program
+#pragma warning restore S1118 // Utility classes should not have public constructors
     {
         public static void Main(string[] args)
         {
@@ -23,4 +26,6 @@ namespace Alza_API
                     webBuilder.UseStartup<Startup>();
                 });
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+
 }

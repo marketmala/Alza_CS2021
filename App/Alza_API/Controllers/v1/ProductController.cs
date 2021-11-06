@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace Alza_API.Controllers.v1
 {
+    /// <summary>
+    /// ProductController V1
+    /// </summary>
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/[controller]")]
@@ -17,12 +20,20 @@ namespace Alza_API.Controllers.v1
     {
         readonly IProductModule module;
 
+        /// <summary>
+        /// ProductController Constructor
+        /// </summary>
+        /// <param name="context"></param>
         public ProductController(DataContext context)
         {
             this.module = new ProductModule(context);
         }
 
-        [HttpGet("GetAllProductsAsync")]
+        /// <summary>
+        /// Returns list of products
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("GetProductsAsync")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<IProduct>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -34,6 +45,11 @@ namespace Alza_API.Controllers.v1
                 : StatusCode(StatusCodes.Status500InternalServerError);
         }
 
+        /// <summary>
+        /// Returns product by ID
+        /// </summary>
+        /// <param name="id">ID of product</param>
+        /// <returns></returns>
         [HttpGet("GetProductAsync")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IProduct))]
@@ -48,6 +64,12 @@ namespace Alza_API.Controllers.v1
                 : StatusCode(statusCode, errorMessage);
         }
 
+        /// <summary>
+        /// Update of product description
+        /// </summary>
+        /// <param name="id">ID of product</param>
+        /// <param name="description">New description</param>
+        /// <returns></returns>
         [HttpPost("UpdateProductAsync")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK)]
