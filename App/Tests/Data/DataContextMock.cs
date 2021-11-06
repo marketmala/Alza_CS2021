@@ -11,7 +11,7 @@ namespace Tests.Data
 #nullable enable
     public class DataContextMock : IDataContext
     {
-        List<IProduct> Products;
+        List<IProduct>? Products;
         public DataContextMock()
         {
             InitializeProductCollection();
@@ -24,13 +24,21 @@ namespace Tests.Data
 
         public Task<IProduct?> GetProductByIdAsync(Guid id)
         {
-            var product = Products.FirstOrDefault(x => x.Id == id);
+            var product = Products?.FirstOrDefault(x => x.Id == id);
             return Task.FromResult(product);
+        }
+
+        public Task<IEnumerable<IProduct>?> GetProductsPagedAsync(int pageNumber, int pageSize)
+        {
+            var products = Products?
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize);
+            return Task.FromResult(products);
         }
 
         public Task<IProduct?> UpdateProductDescriptionAsync(Guid id, string? description)
         {
-            var product = Products.FirstOrDefault(x => x.Id == id);
+            var product = Products?.FirstOrDefault(x => x.Id == id);
             if (product != null)
             {
                 product.Description = description;

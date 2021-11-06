@@ -1,5 +1,6 @@
 ﻿using Alza_API.Interfaces;
 using Alza_API.Logic;
+using Alza_API.Models;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
@@ -51,5 +52,21 @@ namespace Tests.Tests.v1
             Assert.Equal(statusCode, status);
             Assert.Equal(errorMessage, error);
         }
+
+        [Theory]
+        [InlineData(1, 10, 10, 1, 10)]
+        [InlineData(2, 10, 5, 2, 10)]
+        [InlineData(3, 10, 0, 3, 10)]
+        [InlineData(-1, 9, 9, 1, 9)]
+        [InlineData(1, 0, 10, 1, 10)]
+        public async Task GetProductsPaged_Test(int pageNumber, int pageSize, int productsCount, int responsePageSize, int responsePageNumber)
+        {
+            var footer = new Footer { PageNumber = pageNumber, PageSize = pageSize };
+            var products = await module.GetProductsPagedAsync(footer);
+            Assert.Equal(productsCount, products?.Products?.Count());
+            Assert.Equal(responsePageNumber, products?.Footer?.PageSize);
+            Assert.Equal(responsePageSize, products?.Footer?.PageNumber);
+        }
+
     }
 }

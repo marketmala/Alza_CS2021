@@ -14,8 +14,8 @@ namespace Alza_API.Logic
         /// <returns></returns>
         public async Task<IProductsPaged> GetProductsPagedAsync(IFooter footer) 
         {
-            var pageNumber = footer?.PageNumber ?? 1;
-            var pageSize = footer?.PageSize ?? 10;
+            var pageNumber = footer?.PageNumber > 0 ? (int)footer.PageNumber : 1;
+            var pageSize = footer?.PageSize > 0 ? (int)footer.PageSize : 10;
 
             var result = new ProductsPaged
             {
