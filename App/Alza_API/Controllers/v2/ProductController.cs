@@ -17,7 +17,7 @@ namespace Alza_API.Controllers.v2
     /// </summary>
     [ApiController]
     [ApiVersion("2.0")]
-    [Route("api/[controller]/v2")]
+    [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
         readonly IProductModule module;

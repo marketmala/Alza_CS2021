@@ -32,7 +32,7 @@ namespace Alza_API.Logic
             }
             catch (Exception e)
             {
-                //place for logging
+                logger.Error(e, "GetProductsPagedAsync");
             }
 
             return result;

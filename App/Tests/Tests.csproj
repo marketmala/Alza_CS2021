@@ -24,8 +24,4 @@
     <ProjectReference Include="..\Alza_API\Alza_API.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Tests\v2\" />
-  </ItemGroup>
-
 </Project>

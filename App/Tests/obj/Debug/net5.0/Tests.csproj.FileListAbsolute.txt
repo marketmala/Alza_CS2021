@@ -144,3 +144,14 @@ C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\obj\D
 C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\obj\Debug\net5.0\ref\Tests.dll
 C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\obj\Debug\net5.0\Tests.pdb
 C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\obj\Debug\net5.0\Tests.genruntimeconfig.cache
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.AspNetCore.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.Formatting.Compact.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Tests\bin\Debug\net5.0\Serilog.Sinks.File.dll

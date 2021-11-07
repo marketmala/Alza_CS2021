@@ -59,3 +59,14 @@ C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\ob
 C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\obj\Debug\net5.0\Alza_API.genruntimeconfig.cache
 C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\obj\Debug\net5.0\Alza_API.csproj.AssemblyReference.cache
 C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Alza_API.xml
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.AspNetCore.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.Formatting.Compact.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
+C:\Users\Narjíta Malá\Documents\Visual Studio 2019\Alza_CS2021\App\Alza_API\bin\Debug\net5.0\Serilog.Sinks.File.dll

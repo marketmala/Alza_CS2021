@@ -69,16 +69,12 @@ namespace Alza_API
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
             // Swagger
             app.UseSwagger();
             app.UseSwaggerUI(c => {

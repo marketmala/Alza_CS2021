@@ -1,6 +1,7 @@
 ﻿using Alza_API.Interfaces;
 using Alza_API.Interfaces.Models;
 using Microsoft.AspNetCore.Http;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Alza_API.Logic
     {
 #nullable enable
         readonly IDataContext context;
+        readonly ILogger logger = Log.ForContext<ProductModule>();
 
         /// <summary>
         /// ProductModule Contructor
@@ -37,6 +39,7 @@ namespace Alza_API.Logic
             }
             catch (Exception e)
             {
+                logger.Error(e, "GetAllProductsAsync");
                 return null;
             }
         }
@@ -62,6 +65,7 @@ namespace Alza_API.Logic
             }
             catch (Exception e)
             {
+                logger.Error(e, "GetProductAsync");
                 return (null, StatusCodes.Status500InternalServerError, "Unexpected error ocurred.");
             }
         }
@@ -88,6 +92,7 @@ namespace Alza_API.Logic
             }
             catch(Exception e)
             {
+                logger.Error(e, "UpdateProductDescriptionAsync");
                 return (null, StatusCodes.Status500InternalServerError, "Unexpected error during update description.");
             }
         }
