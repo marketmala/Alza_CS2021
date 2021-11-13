@@ -36,13 +36,13 @@ namespace Alza_API.Controllers.v2
         [HttpGet("")]
         [MapToApiVersion("2.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IProductsPaged))]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> GetProductsPagedAsync([FromQuery]Footer request)
         {
             var productsPaged = await module.GetProductsPagedAsync(request);
             return productsPaged?.Products != null
                 ? Ok(productsPaged)
-                : StatusCode(StatusCodes.Status500InternalServerError);
+                : StatusCode(StatusCodes.Status404NotFound);
         }
     }
 }

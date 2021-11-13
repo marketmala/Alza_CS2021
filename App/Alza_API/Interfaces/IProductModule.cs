@@ -25,13 +25,13 @@ namespace Alza_API.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<(IProduct? product, int statusCode, string? error)> GetProductAsync(string id);
+        Task<IProduct?> GetProductAsync(string id);
         /// <summary>
         /// Update of product description
         /// </summary>
         /// <param name="id"></param>
         /// <param name="description"></param>
         /// <returns></returns>
-        Task<(IProduct? product, int statusCode, string? error)> UpdateProductDescriptionAsync(string id, string description);
+        Task<IProduct?> UpdateProductDescriptionAsync(string id, string description);
     }
 }

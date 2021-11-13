@@ -36,13 +36,13 @@ namespace Alza_API.Controllers.v1
         [HttpGet("")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<IProduct>))]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> GetAllProductsAsync()
         {
             var result = await module.GetAllProductsAsync();
             return result != null
                 ? Ok(result)
-                : StatusCode(StatusCodes.Status500InternalServerError);
+                : StatusCode(StatusCodes.Status404NotFound);
         }
 
         /// <summary>
@@ -52,16 +52,16 @@ namespace Alza_API.Controllers.v1
         /// <returns></returns>
         [HttpGet("{id}")]
         [MapToApiVersion("1.0")]
+        [ValidateProductsParametersAttribute]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IProduct))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> GetProductAsync([Required]string id)
         {
-            var (product, statusCode, errorMessage) = await module.GetProductAsync(id);
-            return string.IsNullOrEmpty(errorMessage) 
+            var product = await module.GetProductAsync(id);
+            return product != null
                 ? Ok(product)
-                : StatusCode(statusCode, errorMessage);
+                : StatusCode(StatusCodes.Status404NotFound, $"Product with ID {id} not found.");
         }
 
         /// <summary>
@@ -72,16 +72,16 @@ namespace Alza_API.Controllers.v1
         /// <returns></returns>
         [HttpPut("{id}")]
         [MapToApiVersion("1.0")]
+        [ValidateProductsParametersAttribute]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult> UpdateProductAsync([Required]string id, string description)
         {
-            var (product, statusCode, errorMessage) = await module.UpdateProductDescriptionAsync(id, description);
-            return product != null && product.Description == description
+            var product = await module.UpdateProductDescriptionAsync(id, description);
+            return product != null
                 ? Ok()
-                : StatusCode(statusCode, errorMessage);
+                : StatusCode(StatusCodes.Status404NotFound, $"Product with ID {id} not found.");
         }
     }
 }

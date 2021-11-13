@@ -319,5 +319,16 @@
             Footer with pagination
             </summary>
         </member>
+        <member name="T:Alza_API.ValidateProductsParametersAttribute">
+            <summary>
+            Input parameters validation
+            </summary>
+        </member>
+        <member name="M:Alza_API.ValidateProductsParametersAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Override OnActionExecuting
+            </summary>
+            <param name="context"></param>
+        </member>
     </members>
 </doc>

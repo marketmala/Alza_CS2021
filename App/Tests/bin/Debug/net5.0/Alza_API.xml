@@ -4,31 +4,31 @@
         <name>Alza_API</name>
     </assembly>
     <members>
-        <member name="T:Alza_API.Controllers.v1.ProductController">
+        <member name="T:Alza_API.Controllers.v1.ProductsController">
             <summary>
             ProductController V1
             </summary>
         </member>
-        <member name="M:Alza_API.Controllers.v1.ProductController.#ctor(Alza_API.Models.DB.DataContext)">
+        <member name="M:Alza_API.Controllers.v1.ProductsController.#ctor(Alza_API.Models.DB.DataContext)">
             <summary>
             ProductController Constructor
             </summary>
             <param name="context"></param>
         </member>
-        <member name="M:Alza_API.Controllers.v1.ProductController.GetAllProductsAsync">
+        <member name="M:Alza_API.Controllers.v1.ProductsController.GetAllProductsAsync">
             <summary>
             Returns list of products
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Alza_API.Controllers.v1.ProductController.GetProductAsync(System.String)">
+        <member name="M:Alza_API.Controllers.v1.ProductsController.GetProductAsync(System.String)">
             <summary>
             Returns product by ID
             </summary>
             <param name="id">ID of product</param>
             <returns></returns>
         </member>
-        <member name="M:Alza_API.Controllers.v1.ProductController.UpdateProductAsync(System.String,System.String)">
+        <member name="M:Alza_API.Controllers.v1.ProductsController.UpdateProductAsync(System.String,System.String)">
             <summary>
             Update of product description
             </summary>
@@ -36,18 +36,18 @@
             <param name="description">New description</param>
             <returns></returns>
         </member>
-        <member name="T:Alza_API.Controllers.v2.ProductController">
+        <member name="T:Alza_API.Controllers.v2.ProductsController">
             <summary>
             ProductController V2
             </summary>
         </member>
-        <member name="M:Alza_API.Controllers.v2.ProductController.#ctor(Alza_API.Models.DB.DataContext)">
+        <member name="M:Alza_API.Controllers.v2.ProductsController.#ctor(Alza_API.Models.DB.DataContext)">
             <summary>
             ProductController Constructor
             </summary>
             <param name="context"></param>
         </member>
-        <member name="M:Alza_API.Controllers.v2.ProductController.GetProductsPagedAsync(Alza_API.Models.Footer)">
+        <member name="M:Alza_API.Controllers.v2.ProductsController.GetProductsPagedAsync(Alza_API.Models.Footer)">
             <summary>
             Returns paged list of products
             </summary>
@@ -318,6 +318,17 @@
             <summary>
             Footer with pagination
             </summary>
+        </member>
+        <member name="T:Alza_API.ValidateProductsParametersAttribute">
+            <summary>
+            Input parameters validation
+            </summary>
+        </member>
+        <member name="M:Alza_API.ValidateProductsParametersAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            Override OnActionExecuting
+            </summary>
+            <param name="context"></param>
         </member>
     </members>
 </doc>

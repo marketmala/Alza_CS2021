@@ -1,6 +1,5 @@
 ﻿using Alza_API.Interfaces;
 using Alza_API.Interfaces.Models;
-using Microsoft.AspNetCore.Http;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -49,24 +48,24 @@ namespace Alza_API.Logic
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<(IProduct? product, int statusCode, string? error)> GetProductAsync(string id)
+        public async Task<IProduct?> GetProductAsync(string id)
         {
             try
             {
                 if(!Guid.TryParse(id, out Guid guid))
                 {
-                    return (null, StatusCodes.Status400BadRequest,  "Invalid product ID.");
+                    return null;
                 }
 
                 var product = await this.context.GetProductByIdAsync(guid);
                 return product != null
-                    ? (product, StatusCodes.Status200OK, null)
-                    : (null, StatusCodes.Status404NotFound, $"Product with ID {id} not found.");
+                    ? product
+                    : null;
             }
             catch (Exception e)
             {
                 logger.Error(e, "GetProductAsync");
-                return (null, StatusCodes.Status500InternalServerError, "Unexpected error ocurred.");
+                return null;
             }
         }
 
@@ -76,24 +75,24 @@ namespace Alza_API.Logic
         /// <param name="id"></param>
         /// <param name="description"></param>
         /// <returns></returns>
-        public async Task<(IProduct? product, int statusCode, string? error)> UpdateProductDescriptionAsync(string id, string description)
+        public async Task<IProduct?> UpdateProductDescriptionAsync(string id, string description)
         {
             try
             {
                 if (!Guid.TryParse(id, out Guid guid))
                 {
-                    return (null, StatusCodes.Status400BadRequest, "Invalid product ID.");
+                    return null;
                 }
 
                 var product = await this.context.UpdateProductDescriptionAsync(guid, description);
                 return product != null
-                    ? (product, StatusCodes.Status200OK, null)
-                    : (null, StatusCodes.Status404NotFound, $"Product with ID {id} not found.");
+                    ? product
+                    : null; 
             }
             catch(Exception e)
             {
                 logger.Error(e, "UpdateProductDescriptionAsync");
-                return (null, StatusCodes.Status500InternalServerError, "Unexpected error during update description.");
+                return null;
             }
         }
     }
