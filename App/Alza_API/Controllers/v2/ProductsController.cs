@@ -22,10 +22,10 @@ namespace Alza_API.Controllers.v2
         /// <summary>
         /// ProductController Constructor
         /// </summary>
-        /// <param name="context"></param>
-        public ProductsController(DataContext context)
+        /// <param name="module"></param>
+        public ProductsController(IProductModule module)
         {
-            this.module = new ProductModule(context);
+            this.module = module;
         }
 
         /// <summary>

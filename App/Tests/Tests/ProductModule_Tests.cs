@@ -13,9 +13,9 @@ namespace Tests.Tests.v1
     public class ProductModule_Tests
     {
         readonly IProductModule module;
-        public ProductModule_Tests(IDataContext context)
+        public ProductModule_Tests(IProductModule module)
         {
-            this.module = new ProductModule(context);
+            this.module = module;
         }
 
         [Fact]

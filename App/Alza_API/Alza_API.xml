@@ -9,11 +9,11 @@
             ProductController V1
             </summary>
         </member>
-        <member name="M:Alza_API.Controllers.v1.ProductsController.#ctor(Alza_API.Models.DB.DataContext)">
+        <member name="M:Alza_API.Controllers.v1.ProductsController.#ctor(Alza_API.Interfaces.IProductModule)">
             <summary>
             ProductController Constructor
             </summary>
-            <param name="context"></param>
+            <param name="module"></param>
         </member>
         <member name="M:Alza_API.Controllers.v1.ProductsController.GetAllProductsAsync">
             <summary>
@@ -41,11 +41,11 @@
             ProductController V2
             </summary>
         </member>
-        <member name="M:Alza_API.Controllers.v2.ProductsController.#ctor(Alza_API.Models.DB.DataContext)">
+        <member name="M:Alza_API.Controllers.v2.ProductsController.#ctor(Alza_API.Interfaces.IProductModule)">
             <summary>
             ProductController Constructor
             </summary>
-            <param name="context"></param>
+            <param name="module"></param>
         </member>
         <member name="M:Alza_API.Controllers.v2.ProductsController.GetProductsPagedAsync(Alza_API.Models.Footer)">
             <summary>
@@ -183,7 +183,7 @@
             Class for retrieve and manipulation with products
             </summary>
         </member>
-        <member name="M:Alza_API.Logic.ProductModule.#ctor(Alza_API.Interfaces.IDataContext)">
+        <member name="M:Alza_API.Logic.ProductModule.#ctor(Alza_API.Models.DB.DataContext)">
             <summary>
             ProductModule Contructor
             </summary>

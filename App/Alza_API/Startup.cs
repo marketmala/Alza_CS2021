@@ -1,4 +1,5 @@
 using Alza_API.Interfaces;
+using Alza_API.Logic;
 using Alza_API.Models.DB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -51,6 +52,7 @@ namespace Alza_API
             });
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlServer(string.Format(Configuration.GetConnectionString("DbContext"), Directory.GetParent(Environment.CurrentDirectory).Parent)));
+            services.AddTransient<IProductModule, ProductModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

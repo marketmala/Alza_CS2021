@@ -1,5 +1,6 @@
 ﻿using Alza_API.Interfaces;
 using Alza_API.Interfaces.Models;
+using Alza_API.Models.DB;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace Alza_API.Logic
         /// ProductModule Contructor
         /// </summary>
         /// <param name="context"></param>
-        public ProductModule(IDataContext context)
+        public ProductModule(DataContext context)
         {
             this.context = context;
         }
