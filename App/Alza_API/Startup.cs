@@ -50,7 +50,7 @@ namespace Alza_API
                 o.SubstituteApiVersionInUrl = true;
             });
             services.AddDbContext<DataContext>(options =>
-                options.UseSqlServer($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"{Directory.GetParent(Environment.CurrentDirectory).Parent}\\Database\\Alza_CS2021.mdf\";Integrated Security=True;Connect Timeout=30"));
+                options.UseSqlServer(string.Format(Configuration.GetConnectionString("DbContext"), Directory.GetParent(Environment.CurrentDirectory).Parent)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

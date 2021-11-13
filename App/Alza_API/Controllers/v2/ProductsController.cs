@@ -5,9 +5,6 @@ using Alza_API.Models;
 using Alza_API.Models.DB;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Alza_API.Controllers.v2
@@ -18,7 +15,7 @@ namespace Alza_API.Controllers.v2
     [ApiController]
     [ApiVersion("2.0")]
     [Route("api/[controller]")]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         readonly IProductModule module;
 
@@ -26,7 +23,7 @@ namespace Alza_API.Controllers.v2
         /// ProductController Constructor
         /// </summary>
         /// <param name="context"></param>
-        public ProductController(DataContext context)
+        public ProductsController(DataContext context)
         {
             this.module = new ProductModule(context);
         }
@@ -36,7 +33,7 @@ namespace Alza_API.Controllers.v2
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpGet("GetProductsAsync")]
+        [HttpGet("")]
         [MapToApiVersion("2.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IProductsPaged))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

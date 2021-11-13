@@ -16,7 +16,7 @@ namespace Alza_API.Controllers.v1
     [ApiController]
     [ApiVersion("1.0")]
     [Route("api/[controller]")]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         readonly IProductModule module;
 
@@ -24,7 +24,7 @@ namespace Alza_API.Controllers.v1
         /// ProductController Constructor
         /// </summary>
         /// <param name="context"></param>
-        public ProductController(DataContext context)
+        public ProductsController(DataContext context)
         {
             this.module = new ProductModule(context);
         }
@@ -33,7 +33,7 @@ namespace Alza_API.Controllers.v1
         /// Returns list of products
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GetProductsAsync")]
+        [HttpGet("")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<IProduct>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
@@ -50,7 +50,7 @@ namespace Alza_API.Controllers.v1
         /// </summary>
         /// <param name="id">ID of product</param>
         /// <returns></returns>
-        [HttpGet("GetProductAsync")]
+        [HttpGet("{id}")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IProduct))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -70,7 +70,7 @@ namespace Alza_API.Controllers.v1
         /// <param name="id">ID of product</param>
         /// <param name="description">New description</param>
         /// <returns></returns>
-        [HttpPost("UpdateProductAsync")]
+        [HttpPut("{id}")]
         [MapToApiVersion("1.0")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
