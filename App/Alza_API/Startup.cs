@@ -50,7 +50,7 @@ namespace Alza_API
                 o.GroupNameFormat = "'v'VVV";
                 o.SubstituteApiVersionInUrl = true;
             });
-            services.AddDbContext<DataContext>(options =>
+            services.AddDbContext<IDataContext ,DataContext>(options =>
                 options.UseSqlServer(string.Format(Configuration.GetConnectionString("DbContext"), Directory.GetParent(Environment.CurrentDirectory).Parent)));
             services.AddTransient<IProductModule, ProductModule>();
         }

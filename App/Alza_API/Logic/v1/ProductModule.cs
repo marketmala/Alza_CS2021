@@ -21,7 +21,7 @@ namespace Alza_API.Logic
         /// ProductModule Contructor
         /// </summary>
         /// <param name="context"></param>
-        public ProductModule(DataContext context)
+        public ProductModule(IDataContext context)
         {
             this.context = context;
         }

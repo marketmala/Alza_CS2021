@@ -183,7 +183,7 @@
             Class for retrieve and manipulation with products
             </summary>
         </member>
-        <member name="M:Alza_API.Logic.ProductModule.#ctor(Alza_API.Models.DB.DataContext)">
+        <member name="M:Alza_API.Logic.ProductModule.#ctor(Alza_API.Interfaces.IDataContext)">
             <summary>
             ProductModule Contructor
             </summary>

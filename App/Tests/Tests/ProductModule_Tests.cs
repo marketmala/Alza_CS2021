@@ -1,7 +1,5 @@
 ﻿using Alza_API.Interfaces;
-using Alza_API.Logic;
 using Alza_API.Models;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
